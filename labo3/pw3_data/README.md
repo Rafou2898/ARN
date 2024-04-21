@@ -73,3 +73,5 @@ Nous avons pu faire la prédiction sur les données de test et les résultats so
 Ce travail pratique nous a permis d'appliquer nos connaissances en mettant en œuvre des MLPs pour classer des données EEG de souris. Nous avons élaboré des modèles pour la classification en deux et trois classes, tout en utilisant diverses architectures de réseaux de neurones ainsi que des méthodes d'optimisation et des fonctions d'activation adaptées à chaque cas.
 
 En conclusion, cette expérience nous a éclairés sur l'importance cruciale du choix des hyperparamètres, de la structure du modèle et des techniques d'optimisation pour créer des réseaux de neurones performants dans la classification de données complexes telles que celles de l'EEG de souris. Malgré cela, des opportunités d'amélioration subsistent, notamment en continuant à explorer ces aspects et en perfectionnant nos modèles.
+
+Note: le fichier old_version et la première ébauche de notre code. Nous avons décidé de le garder pour montrer notre processus de travail. De plus il manque le fichier EGG_moiuse_data_test dans ce github car il est trop lourd pour être uploadé.
