@@ -66,6 +66,8 @@ La fonction de perte Categorical Crossentropy est spécifiquement conçue pour l
 
 Ces changements nous ont permis d'augmenter notre moyenne de F1-score à 0.88, ce qui est une légère amélioration par rapport à notre F1-score de l'exercice 2. Malheureusement, nous n'avons pas eu plus de temps pour essayer d'autres combinaisons de paramètre dans l'optique d'obtenir un meilleur F1-score.
 
+Nous avons pu faire la prédiction sur les données de test et les résultats sont dans le fichier `test_pred.npy`.
+
 ## Conclusion
 
 Ce travail pratique nous a permis d'appliquer nos connaissances en mettant en œuvre des MLPs pour classer des données EEG de souris. Nous avons élaboré des modèles pour la classification en deux et trois classes, tout en utilisant diverses architectures de réseaux de neurones ainsi que des méthodes d'optimisation et des fonctions d'activation adaptées à chaque cas.
