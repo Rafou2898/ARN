@@ -1,7 +1,5 @@
 # Practical work 4
 ## Auteur.e.s :  Dousse Rafael & Baquerizo Emily
-
-
 ## Question 1
  
  Le code fournis dans les trois premier notebook utilise les même optimiseur et la même fonction de perte.
@@ -195,13 +193,13 @@ Voici les matrices de confusions pour la validation et le test:
 <br>
 Nous avons obtenu les résultats suivants pour le modèle:
 
-*Validation F1 score: 1.0000
-Validation accuracy: 1.0000
-Test F1 score: 0.8505 
-Test accuracy: 0.7821*
+*Validation F1 score: 1.0000 <br>
+Validation accuracy: 1.0000 <br>
+Test F1 score: 0.8505 <br>
+Test accuracy: 0.7821* <br>
 
 
 Nous avons des très bons résultats pour la validation où le modèle classifie toutes les données correctement. En revanche, pour le test, nous avons des résultats moins corrects, le modèle ayant tendance à prédire des faux-positifs. 
 En effet, le dataset de la validation étant pauvre en terme de quantité données utilisées, il est possible que le modèle ait appris par coeur une certaine classification. Cela pourrait être une raison qui expliquerait pourquoi notre modèle a plus de mal à classifier les données du test.
 De plus, nous pouvons observer que lors de la validation, nous effectuions nos mesures en utilisant le même nombre d'image de pneumonie que de normal (non-pneumonie) alors que lors du test, nous possèdons un nombre d'image normal (non-pneumonie) plus élevés que d'image contenant une pneumonie.
-Par ce fait, notre validation et test ne sont pas représentatifs l'un de l'autre, nos deux dataset ayant des proportionalités différentes des deux catégories d'images. Pour obtenir de meilleur résultat, nous pourrions envisager de cette fois-ci, de se baser sur deux datasets ayant une grandeur et une quantité d'images des deux catégories similaire ou au moins proportionnelle.
+Par ce fait, notre validation et test ne sont pas représentatifs l'un de l'autre, nos deux dataset ayant des proportionalités différentes des deux catégories d'images. Pour obtenir de meilleur résultat, nous pourrions envisager de se baser sur deux datasets ayant une grandeur et une quantité d'images des deux catégories similaire ou au moins proportionnelle. 
