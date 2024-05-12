@@ -69,10 +69,6 @@ $$\begin{equation}
 Ce n'est pas forcément le cas. Avec un MLP chaque pixel va être connecté à chaque neurone de la couche suivante ce qui peux nous donner un grand nombre de poids. Alors que pour un CNN, on va avoir des filtres qui vont être appliqués sur l'image et qui peuvent avoir la même taille à chaque fois ce qui va réduire le nombre de poids. On peut le remarquer avec les notebook fournis. Le résumé du modèle utilisé dans le fichier `MLP_from_raw_data` nous indique que le nombre total de paramètre est de 7'960 alors qu'on a que de couche de 10 neuronnes. Alors que pour le modèle de convolution utilisé dans `CNN`  utilise beaucoup plus de couche et plus de neuronnes mais le nombre total de paramètre est de 1'890.
 
 ### Question 4
-*Train a CNN for the chest x-ray pneumonia recognition. In order to do so, complete the
-code to reproduce the architecture plotted in the notebook. Present the confusion matrix,
-accuracy and F1-score of the validation and test datasets and discuss your results.*
-
 Pour ce modèle de convolution, nous avons du compléter le code fournis dans le notebook et suivre les instructions données dans une image pour reproduire l'architecture du modèle. 
 Voici le code du modèle que nous avons fait:
 
@@ -99,4 +95,25 @@ dense_22 = Dense(16, activation='relu', name='dense_22')(dense_21)
 
 cnn_output = layers.Dense(1, activation='sigmoid')(dense_22)
 ```
- 
+
+ Comme dit dans la question 1, l'optimiseur utilisé est Adam() et la loss est binary_crossentropy qui fonctionne bien ensemble et qui est bien pour classifé deux classes. Nous avons entrainé notre modèle avec 10 époques. Nous avons testé plusieurs epoch entre 5 8 10 12 et 14 et le paramètre de 10 est celui ou on a eu les meilleurs résultats. Voici le graph pour le loss et l'accuracy pour le modèle:
+
+
+ ![alt text](image-1.png)
+ ![alt text](image-2.png)
+
+Chaque fois que nous faisions tourner le modèle, nous obtenions des résultats plus tot similaire avec la validation qui fait des sauts.
+
+Voici les matrices de confusions pour la validation et le test:
+ ![alt text](image-3.png)
+ ![alt text](image-4.png)
+
+Nous avons obtenu les résultats suivants pour le modèle:
+
+*Validation F1 score: 1.0000 <br>
+Validation accuracy: 1.0000 <br>
+Test F1 score: 0.8505 <br>
+Test accuracy: 0.7821 <br>*
+
+
+On a des très bon résultats pour la validation ou il classifie tout correctement. Pour le test par contre on a des résultats plus bas ou il a tendance a classifier plus de faux-positif. En fait, le dataset de la validation est assez pauvre avec pas beaucoup de données et il est possible que le modèle ait appris par coeur les données. Ce qui fait que pour le test, il a peut être plus de mal à bien classifier surtout qu'on peut remarquer le datatest de la validation a un nombre similaire de pneumonie et de normal alors que le dataset de test a plus d'images de pneumonie que de normal. Nous n'avons pas réussi a trouver de bonne manière de faire un dataset de validation qui soit plus représentatif du dataset de test. Il nous faudrait plus de données pour pouvoir faire un dataset de validation plus représentatif.
