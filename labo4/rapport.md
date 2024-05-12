@@ -1,3 +1,4 @@
+
 # Practical work 4
 ## Auteur.e.s :  Dousse Rafael & Baquerizo Emily
 ## Question 1
@@ -29,16 +30,12 @@ keras.optimizers.RMSprop(
 
 Nous avons aussi trouvé en ligne l'équation pour la fonction de perte categorical_crossentropy:
 
-$$\begin{equation}
--\frac{1}{N} \sum_{i=1}^{N} \sum_{c=1}^{C} 1_{y_i \in C_c} \log p_{\text{model}}(y_i \in C_c)
-\end{equation}$$
+![alt text](image-17.png)
 
 Enfin, nous avons remarqué que pour le notebook que nous avons du compléter pour le CNN_pneumonia, l'optimiseur et la fonction de perte sont différents. Cette fois-ci, `Adam()` est utilisé pour l'optimiseur et  `binary_crossentropy` pour la fonction de perte, ce qui fait sens care nous n'avons que deux classes.
 Voici son équation:
 
-$$\begin{equation}
- H_p(q) = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \cdot \log(p(y_i)) + (1 - y_i) \cdot \log(1 - p(y_i)) \right]
-  \end{equation}$$
+  ![alt text](image-18.png)
 
   Et voici les paramètres de `Adam()` que nous avons trouvé en ligne:
 
@@ -76,8 +73,8 @@ Grâce à cela, nous pouvons calculer que le nombre total de poids de notre rés
 
 Lors de nos différents tests, nous avons malheureusement oublié de récuperer nos résultats intermédiaire pour pouvoir les comparer à notre choix final.
 
-De ce fait, en se basant uniquement sur notre score :
-![alt text](image-6.png)
+De ce fait, en se basant uniquement sur notre score : 
+<br>![alt text](image-6.png) <br>
 Ainsi que notre graphique et matrice de confusion  :
 <p align="center">
 <img alt="Graphe" src="image-7.png" width="45%">
@@ -100,7 +97,7 @@ Ainsi, nous pouvons calculer que nous avons un poids total de : 3930 + 110 = 404
 Lors de nos différents tests, nous avons malheureusement oublié de récuperer nos résultats intermédiaires pour pouvoir les comparer à notre choix final.
  
 De ce fait, en se basant uniquement sur notre score :
-![alt text](image-10.png)
+<br>![alt text](image-10.png)<br>
 
 Ainsi que sur notre graphique et matrice de confusion:
 
@@ -123,7 +120,7 @@ En se basant sur le résumé du modèle ci-dessus, nous constatons  que nous avo
 Lors de nos différents tests, nous avons malheureusement oublié de récuperer nos résultats intermédiaires pour pouvoir les comparer à notre choix final.
  
 De ce fait, en se basant uniquement sur notre score :
-![alt text](image-14.png)
+<br>![alt text](image-14.png)<br>
 
 Ainsi que sur notre graphique et matrice de confusion:
 <p align="center">
