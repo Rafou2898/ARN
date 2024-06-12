@@ -23,13 +23,20 @@ Pour le test et la validation, l'utilisation des images augmentée n'est pas id�
 ## 4. Création du model
 
 ##### a. What hyperparameters did you choose (nb epochs, optimizer, learning rate, ...) ?
-
+epoch : 10
+optimizer : RMSprop
+learning rate : 
 ##### b. What is the architecture of your final model ? How many trainable parameters does it have?
+architecture finale : 
+nombre de paramètre  :
+Nous avons opté pour un GlobalAveragePooling pour réduire le nombre de paramètres utilisés à la place d'un flatten.
 
 ##### c. How did you perform the transfer learning ? Explain why did you use transfer learning, e.g., what is the advantage of using transfer learning for this problem and why it might help ?
 
 
+
 ## 5. Résultat
+![Figure 1](Fig1.png)
 
 ##### a. Provide your plots and confusion matrices
 
