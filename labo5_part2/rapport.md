@@ -38,11 +38,17 @@ Pour l'évaluation du modèle, nous avons divisé nos données en ensembles d'en
 
 - Set de test : Constitue les 15% restants des images et est utilisé pour évaluer la performance finale du modèle. Cet ensemble est la pour tester la capacité de notre modèle à classifier de nouvelles données non vues pendant l'entraînement.
 
-Pour le test et la validation, l'utilisation des images augmentée n'est pas idéale puisqu'elles ne reflètent pas les panneaux dans la réalité. N'ayant pas vu cette indication lors de l'écriture du code, nous avons utilisé les images augmentées dans le test et la validation et quand nous avons parlé avec notre assistant et appris qu'on ne devait pas le faire, nous n'avons pas eu de temps pour rechanger le code mais dans une situation optimale, l'ajout d'images augmentées dans les ensemble de validation et entrainement est a évité.
+Pour le test et la validation, l'utilisation des images augmentée n'est pas idéale puisqu'elles ne reflètent pas les panneaux dans la réalité. N'ayant pas vu cette indication lors de l'écriture du code, nous avons utilisé les images augmentées dans le test et la validation et quand nous avons parlé avec notre assistant et appris qu'on ne devait pas le faire, nous n'avons pas eu de temps pour rechanger le code mais dans une situation optimale, l'ajout d'images augmentées dans les ensemble de validation et entrainement est a évité. Voici un exemple d'images augmentées :
+
+<p align="center">
+<br> Exemple d'images augmentées <br>
+<img alt="Image augmentée 1" src="image-9.png" width="45%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+<img alt="Image augmentée 2" src="image-10.png" width="45%">
+</p>
 
 ## 4. Création du model
 
-##### a. What hyperparameters did you choose (nb epochs, optimizer, learning rate, ...) ?
 Pour la création de notre modèle, nous avons opté pour l'utilisation de 10 epoch ainsi que pour l'utilisation de la fonction d'optimisation RMSprop. Le learning rate n'a pas été choisi de manière explicite mais l'utilisation de RMSprop implique l'utilisation d'un learning rate adapté.
 
 ```python
@@ -54,12 +60,8 @@ model.compile(
 )
 ```
 
-##### b. What is the architecture of your final model ? How many trainable parameters does it have?
-Nous avons opté pour un GlobalAveragePooling pour réduire le nombre de paramètres utilisés à la place d'un flatten.
-
 L'architecture de notre modèle final est basé sur celle de MobileNetV2 avec quelques couches supplémentaires permettant d'apater le modèle à la classification de panneaux de signalisation. Les 4 couches ajoutées sont les suivantes : une couche GlobalAveragePooling2D, une couche de densité avec 1024 neurones et utilisation la fonction d'activation ReLu, une couche de dropout avec un taux de 0.5 et une dernière fouche de densité avec 3 neurones et utilisant la fonction d'activation softmax.
-Nous avons opté pour un GlobalAveragePoo
-e'l ua gni
+Nous avons opté pour un GlobalAveragePooling à la place d'un Flatten() pour réduire le nombre de paramètres utilisés.
 
 ```python
 def get_model():
@@ -93,10 +95,9 @@ def get_model():
     return model
 ```
 
-[TODO] trouver nombre de paramètre entraînable du modèle
-Ainsi, notre modèle possède un total de ... paramètres entraînables.
+Ainsi, notre modèle possède un total de 1'314'819 paramètres entraînables.
 
-##### c. How did you perform the transfer learning ? Explain why did you use transfer learning, e.g., what is the advantage of using transfer learning for this problem and why it might help ?
+
 Pour effectuer le transfer learning, nous avons première récuépéré le modèle issue de MobileNetV2, puis gelé les premières couches et rajouté les nouvelles couches mentionnées plus haut pour entraîner le modèle sur l'utilisation désirée. Cette utilisation du transfer learning possède plusieurs avantages :
 1. Exploiter des connaissances acquises par le modèle déjà entraîné. Par exemple, la reconnaissance de couleur ou encore de texte.
 2. Réduction du temps d'entraînement car il n'est pas nécessaire d'entraînement les premières couches du modèle.
@@ -107,6 +108,7 @@ Pour effectuer le transfer learning, nous avons première récuépéré le modè
 
 ![Figure 1](Fig1.png)
 ![alt text](image.png)
+
 
 Voici notre F-1 score ainsi que notre accuracy pour le test :
 F1 score:  0.855
@@ -145,4 +147,6 @@ Si on utilise notre modèle sur d'autres choses que des panneaux, on va avoir de
 ## 6. Conclusion
 Ce labo nous a permit de nous familiarisé encore plus avec les réseaux de neurones convolutifs (CNN), découvrir le transfert d'apprentissage et entrainé notre propre modèle  dans la reconnaissance de formes spécifiques de panneaux de circulation.
 
- En exploitant un modèle pré-entraîné (MobileNetV2) et en l'adaptant à nos besoins spécifiques, nous avons réussi à développer un système capable d'identifier les formes des panneaux avec une bonne précision, malgré un ensemble de données relativement restreint et les soucis qu'on a pu avoir avec nos images.
+En exploitant un modèle pré-entraîné (MobileNetV2) et en l'adaptant à nos besoins spécifiques, nous avons réussi à développer un système capable d'identifier les formes des panneaux avec une bonne précision, malgré un ensemble de données relativement restreint et les soucis qu'on a pu avoir avec nos images.
+
+Pour améliorer les résultats futurs, nous pourrions augmenter la taille du jeu de données et équilibrer le nombre d'exemples par classe.
