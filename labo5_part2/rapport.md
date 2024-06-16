@@ -106,9 +106,15 @@ Pour effectuer le transfer learning, nous avons première récuépéré le modè
 
 ## 5. Résultat
 
-![Figure 1](Fig1.png)
-![alt text](image.png)
+<p style="text-align: center;"><b> Graphique </b></p>
 
+![Figure 1](Fig1.png)
+
+<br></br>
+
+<p style="text-align: center;"><b> Matrice de confusion </b></p>
+
+![alt text](image.png)
 
 Voici notre F-1 score ainsi que notre accuracy pour le test :
 F1 score:  0.855
@@ -120,9 +126,18 @@ Dans le monde réel, notre modèle est assez performant. Il arrive bien à ident
 
 Les images grad-cam montrent que le modèle concentre son attention sur les zones pertinentes des panneaux, comme les symboles et les formes distinctives. Par exemple, pour les panneaux ronds, l'activation est centrée autour du cercle, tandis que pour les triangles, l'activation est forte aux bords et au centre des panneaux.
 
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+<p align="center">
+<br><b> Grad cam </b><br>
+<img alt="Grad1" src="image-1.png" width="20%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+<img alt="Grad2" src="image-2.png" width="20%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+<img alt="Grad3" src="image-3.png" width="20%">
+&nbsp; &nbsp; &nbsp; &nbsp;
+<img alt="Grad4" src="image-11.png" width="20%">
+</p>
+
+
 
 Ces activations indiquent que notre modèle a appris à reconnaître certaines des caractéristiques spécifiques qui définissent chaque type de panneau de signalisation.  Donc il a bien "appris" à différencier les formes des panneaux.
 Bien sûre ce n'est pas parfait.
@@ -131,16 +146,27 @@ Certaines des erreurs de classification sont les suivantes:
 
 Pour l'image qui suit, on peut comprendre que le modèle ait eu du mal à identifier le panneau car il est de côté et que l'image se concentre plus sur le fond que sur le panneau lui-même.
 
-![alt text](image-5.png)
+<p align="center">
+<img alt="Grad5" src="image-5.png">
+</p>
 
 Par contre, pour cette image, nous avons du mal a comprendre pourquoi le modèle se concentre sur une partie de mur a la place du panneau rond ( ou meme le petit panneau rectangulaire qui se trouve en dessous ). On peut concevoir que les panneaux soient éloignés mais pas énormément non plus.
-![alt text](image-6.png)
+
+<p align="center">
+<img alt="Grad6" src="image-6.png">
+</p>
 
 Sur l'image qui suit on comprends que le modèle ait eu du mal à identifier le panneau car c'est une des images augmentées et l'image est donc pas mal floue. C'est une des raisons pour laquelle on n'aurait pas dû utiliser les images augmentées pour le test et la validation.
-![alt text](image-7.png)
+
+<p align="center">
+<img alt="Grad7" src="image-7.png">
+</p>
 
 Comme déjà dit, on voit que dans cette image de panneau rectangulaire, c'est plus sur la forme ronde qu'il va se concentrer.
-![alt text](image-4.png)
+
+<p align="center">
+<img alt="Grad4" src="image-4.png">
+</p>
 
 Si on utilise notre modèle sur d'autres choses que des panneaux, on va avoir des sides-effect assez intéressant. Si on lui montre un humain, il va en principe l'identifier comme rond. Mais ce qui est intéressant c'est que si par exemple on dessinait un rond ou un triangle sur un tableau noir, il va parfaitement les identifiers. En générale, tout ce qui n'est pas un panneau mais a une forme de celles qui sont classifier et entrainé par notre modèle, il va les identifier comme tel. Au final, on aurait pu définir notre modèle comme un classifier de formes en générale et pas seulement de panneaux.
 
@@ -149,4 +175,4 @@ Ce labo nous a permit de nous familiarisé encore plus avec les réseaux de neur
 
 En exploitant un modèle pré-entraîné (MobileNetV2) et en l'adaptant à nos besoins spécifiques, nous avons réussi à développer un système capable d'identifier les formes des panneaux avec une bonne précision, malgré un ensemble de données relativement restreint et les soucis qu'on a pu avoir avec nos images.
 
-Pour améliorer les résultats futurs, nous pourrions augmenter la taille du jeu de données et équilibrer le nombre d'exemples par classe.
+Pour améliorer les résultats futurs, nous pourrions augmenter la taille du jeu de données et équilibrer le nombre d'exemples par classe et surtout ne pas mettre d'images augmentées dans les tests et validations.
